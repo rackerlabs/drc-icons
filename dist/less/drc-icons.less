@@ -21,27 +21,22 @@
 
 @font-face {
 	font-family: @di-font-name;
-	src:url(~"@{di-font-path}/icons.eot?b8dda92d5352506a20a850c6ea76f754");
-	src:url(~"@{di-font-path}/icons.eot?#iefix") format("embedded-opentype"),
-		url(~"@{di-font-path}/icons.woff?b8dda92d5352506a20a850c6ea76f754") format("woff"),
-		url(~"@{di-font-path}/icons.ttf?b8dda92d5352506a20a850c6ea76f754") format("truetype");
+	src:url(~"@{di-font-path}/drc-icons.eot?72567d612ea5530e75b1fcc92fdeda14");
+	src:url(~"@{di-font-path}/drc-icons.eot?#iefix") format("embedded-opentype"),
+		url(~"@{di-font-path}/drc-icons.woff?72567d612ea5530e75b1fcc92fdeda14") format("woff"),
+		url(~"@{di-font-path}/drc-icons.ttf?72567d612ea5530e75b1fcc92fdeda14") format("truetype");
 	font-weight:normal;
 	font-style:normal;
 }
 
 .drc-icon() {
-	font-family: @di-font-name;
-	display:inline-block;
-	vertical-align:middle;
-	line-height:1;
-	font-weight:normal;
-	font-style:normal;
-	speak:none;
-	text-decoration:inherit;
-	text-transform:none;
-	text-rendering:auto;
-	-webkit-font-smoothing:antialiased;
-	-moz-osx-font-smoothing:grayscale;
+	display: inline-block;
+	font: normal normal normal 14px/1 @di-font-name; // shortening font declaration
+	font-size: inherit; // can't have font-size inherit on line above, so need to override
+	text-rendering: auto; // optimizelegibility throws things off #1094
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
 }
 
 [class*="drc-icon-"] {
